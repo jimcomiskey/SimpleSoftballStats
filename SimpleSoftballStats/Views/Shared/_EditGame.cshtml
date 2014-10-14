@@ -1,0 +1,75 @@
+﻿@model SimpleSoftballStats.ViewModels.GameViewModel
+
+<p data-bind="text: MessageToClient"> </p>
+
+<form>
+    <div class="form-group">
+        <label class="control-label">Our Team</label>
+        <select class="form-control" name="TeamId" id="TeamId" data-bind="value: TeamId, options: AvailableTeams, optionsValue: function(team) { return team.TeamId; }, optionsText: function(team) { return team.TeamName; }, event: {change: flagGameAsEdited}"></select>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Game Time</label>
+        <input class="form-control" name="GameTime" id="GameTime" data-bind="value: GameTime, event: {change: flagGameAsEdited}" /> 
+    </div>
+    <div class="form-group">
+        <label class="control-label">Opponent</label>
+        <input class="form-control" name="Opponent" id="Opponent" data-bind="value: Opponent, event: {change: flagGameAsEdited}" /> 
+    </div>
+    <div class="form-group">
+        <label class="control-label">Runs Scored</label>
+        <input class="form-control" name="RunsScored" id="RunsScored" data-bind="value: RunsScored, event: {change: flagGameAsEdited}" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Runs Allowed</label>
+        <input class="form-control" name="RunsAllowed" id="RunsAllowed" data-bind="value: RunsAllowed, event: {change: flagGameAsEdited}" />
+    </div>
+
+    <table class="table table-striped">
+        <tr>            
+            <th>Player blah blah blah blah bah</th>
+            <th class="text-right">Order</th>
+            <th class="text-right">PA</th>
+            <th class="text-right">R</th>
+            <th class="text-right">H</th>
+            <th class="text-right">2B</th>
+            <th class="text-right">3B></th>
+            <th class="text-right">HR</th>
+            <th class="text-right">BB</th>
+            <th class="text-right">RBI</th>
+            <th><button class="btn btn-info btn-xs" data-bind="click: addGameBoxScoreDetail">Add</button></th>
+        </tr>
+        <tbody data-bind="foreach: BoxScoreDetails">
+            <tr>
+                @*<td class="form-group"><select name="Player" class="form-control" data-bind="attr: {'id': 'PlayerId_' + $index()}, value: PlayerId, options: $(parent).AvailablePlayers, optionsValue: function(player) { return player.PlayerId; }, optionsText: function(player) { return player.FirstName; }, event: {change: flagBoxScoreDetailAsEdited}" /></td>*@
+                <td class="form-group"><select name="Player" class="form-control dropdown" data-bind="attr: {'id': 'PlayerId_' + $index()}, value: PlayerId, options: gameViewModel.AvailablePlayers, optionsValue: function(player) { return player.PlayerId(); }, optionsText: function(player) { return player.FirstName().concat(' ', player.LastName()); }" ></select></td>
+                <td class="form-group"><input name="BattingOrder" class="form-control input-sm text-right" data-bind="attr: {'id': 'BattingOrder_' + $index()}, value: BattingOrder, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="PlateAppearances" class="form-control input-sm text-right" data-bind="attr: {'id': 'PlateAppearances_' + $index()}, value: PlateAppearances, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="RunsScored" class="form-control input-sm text-right" data-bind="attr: {'id': 'RunsScored_' + $index()}, value: RunsScored, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="Hits" class="form-control input-sm text-right" data-bind="attr: {'id': 'Hits_' + $index()}, value: Hits, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="Doubles" class="form-control input-sm text-right" data-bind="attr: {'id': 'Doubles_' + $index()}, value: Doubles, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="Triples" class="form-control input-sm text-right" data-bind="attr: {'id': 'Triples_' + $index()}, value: Triples, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="HomeRuns" class="form-control input-sm text-right" data-bind="attr: {'id': 'HomeRuns_' + $index()}, value: HomeRuns, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="Walks" class="form-control input-sm text-right" data-bind="attr: {'id': 'Walks_' + $index()}, value: Walks, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td class="form-group"><input name="RunsBattedIn" class="form-control input-sm text-right" data-bind="attr: {'id': 'RunsBattedIn_' + $index()}, value: RunsBattedIn, event: {change: flagBoxScoreDetailAsEdited}" /></td>
+                <td data-bind="click: $parent.deleteBoxScoreDetail" class="form-group"><button class="btn btn-danger btn-xs">Delete</button></td>
+            </tr>
+        </tbody>
+        <tr>
+            <td class="form-group">Total</td>
+            <td>&nbsp;</td>
+            <td class="form-group text-right" data-bind="text: TotalPA"></td>            
+            <td class="form-group text-right" data-bind="text: TotalRuns"></td>
+            <td class="form-group text-right" data-bind="text: TotalHits"></td>
+            <td class="form-group text-right" data-bind="text: Total2B"></td>
+            <td class="form-group text-right" data-bind="text: Total3B"></td>
+            <td class="form-group text-right" data-bind="text: TotalHR"></td>
+            <td class="form-group text-right" data-bind="text: TotalBB"></td>
+            <td class="form-group text-right" data-bind="text: TotalRBI"></td>            
+        </tr>
+    </table>
+
+    <p><button class="btn btn-primary" type="submit">Save</button></p>
+</form>
+
+<p><a href="/Games/Index" class="btn btn-default btn-sm">&laquo; Back to List</a></p>
+

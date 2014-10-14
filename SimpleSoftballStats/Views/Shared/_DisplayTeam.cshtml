@@ -1,0 +1,48 @@
+﻿@model SimpleSoftballStats.ViewModels.TeamViewModel
+
+<div>
+    <div class="form-group">
+        <label class="control-label">Team Name</label>
+        <span class="form-control" data-bind="text: TeamName"></span>
+    </div>
+</div>
+<p>
+    <table class="table table-striped">
+        <tr>
+            <th>Player</th>            
+            <th>G</th>
+            <th>PA</th>
+            <th>AB</th>
+            <th>R</th>
+            <th>H</th>
+            <th>2B</th>
+            <th>3B</th>
+            <th>HR</th>
+            <th>BB</th>
+            <th>RBI</th>
+            <th>BA</th>
+            <th>OBP</th>
+            <th>SLG</th>
+        </tr>
+        <tbody data-bind="foreach: PlayerStats">
+            <tr>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: PlayerFullName" /></td>                
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: G" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: PA" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: AB" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: Runs" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: Hits" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: Doubles" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: Triples" /></td>                
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: HR" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: BB" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: RBI" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: BattingAvg" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: OnBasePct" /></td>
+                <td class="form-group"><span class="form-control-static input-sm" data-bind="text: SluggingPct" /></td>
+
+            </tr>
+        </tbody>
+    </table>
+</p>
+<p><a href="../Index" class="btn btn-default btn-sm">&laquo; Back to List</a></p>

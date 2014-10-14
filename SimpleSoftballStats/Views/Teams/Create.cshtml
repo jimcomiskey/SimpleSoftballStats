@@ -1,0 +1,27 @@
+﻿@model SimpleSoftballStats.ViewModels.TeamViewModel
+@using System.Web.Script.Serialization
+
+@{
+    ViewBag.Title = "Create Team";
+}
+
+@{
+    string data = new JavaScriptSerializer().Serialize(Model);
+}
+
+@section scripts {
+    <script src="~/Scripts/knockout-3.2.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+        
+    <script src="~/Scripts/teamviewmodel.js"></script>
+    <script type="text/javascript">
+        var teamViewModel = new TeamViewModel(@Html.Raw(data));
+        ko.applyBindings(teamViewModel);
+    </script>
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_EditTeam")
+

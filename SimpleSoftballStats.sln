@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSoftballStats", "SimpleSoftballStats\SimpleSoftballStats.csproj", "{5FFF123D-42A3-4624-927F-E1B0BD8EEBE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSoftballStats.Tests", "SimpleSoftballStats.Tests\SimpleSoftballStats.Tests.csproj", "{008A8B99-1669-4882-93B6-89604205051D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{5E0AD77C-E6EB-4B98-836C-06C147CBF104}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{D05C825E-30AA-4014-A4E8-6AD1295954F0}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\SimpleSoftballStats-WAWS-dev.json = PublishScripts\Configurations\SimpleSoftballStats-WAWS-dev.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5B0789C-62BA-4CAE-87F2-A452E752FCC5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSoftballStats.DataLayer", "SimpleSoftballStats.DataLayer\SimpleSoftballStats.DataLayer.csproj", "{A2FB306A-5873-4500-BC8F-858578949E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSoftballStats.Model", "SimpleSoftballStats.Model\SimpleSoftballStats.Model.csproj", "{6B20228B-6C0C-4A56-BA95-F33FF67BF3B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FFF123D-42A3-4624-927F-E1B0BD8EEBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFF123D-42A3-4624-927F-E1B0BD8EEBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFF123D-42A3-4624-927F-E1B0BD8EEBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFF123D-42A3-4624-927F-E1B0BD8EEBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008A8B99-1669-4882-93B6-89604205051D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008A8B99-1669-4882-93B6-89604205051D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008A8B99-1669-4882-93B6-89604205051D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008A8B99-1669-4882-93B6-89604205051D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FB306A-5873-4500-BC8F-858578949E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FB306A-5873-4500-BC8F-858578949E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FB306A-5873-4500-BC8F-858578949E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FB306A-5873-4500-BC8F-858578949E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B20228B-6C0C-4A56-BA95-F33FF67BF3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B20228B-6C0C-4A56-BA95-F33FF67BF3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B20228B-6C0C-4A56-BA95-F33FF67BF3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B20228B-6C0C-4A56-BA95-F33FF67BF3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D05C825E-30AA-4014-A4E8-6AD1295954F0} = {5E0AD77C-E6EB-4B98-836C-06C147CBF104}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+﻿@model SimpleSoftballStats.ViewModels.TeamViewModel
+
+<p data-bind="text: MessageToClient"> </p>
+    
+<form>
+    <div class="form-group">
+        <label class="control-label" for="TeamName">Team Name</label>
+        <input class="form-control" name="TeamName" id="TeamName" data-bind="value: TeamName, event: {change: flagTeamAsEdited}" />        
+    </div>
+    
+    <p>
+        <table class="table table-striped">
+            <tr>
+                <th>Player</th>
+                <th><select class="form-control" data-bind="options: AvailablePlayers, optionsText: function(player) { return player.FirstName().concat(' ', player.LastName()); }, value: PlayerToAdd"></select></th>
+                <th><button data-bind="click: addPlayerToTeam" class="btn btn-info">Add Player</button></th>            
+            </tr>
+            <tbody data-bind="foreach: RosterEntries">
+                <tr>
+                    <td class="form-group"><span class="form-control-static input-sm" data-bind="text: PlayerFullName" /></td>
+                    <td class="form-group"></td>
+                    <td data-bind="click: $parent.deleteRosterEntry" class="form-group"><button class="btn btn-danger btn-xs">Delete</button></td>
+                </tr>
+            </tbody>        
+        </table>
+    </p>
+
+    <p><button class="btn btn-primary" type="submit">Save</button></p>
+</form>
+
+<p><a href="/Teams/Index" class="btn btn-default btn-sm">&laquo; Back to List</a></p>

@@ -1,0 +1,33 @@
+﻿@model SimpleSoftballStats.ViewModels.TeamViewModel
+@using System.Web.Script.Serialization
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@{
+    string data = new JavaScriptSerializer().Serialize(Model);
+}
+
+@section scripts {
+    <script src="~/Scripts/knockout-3.2.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/teamviewmodel.js"></script>
+    <script type="text/javascript">
+        var teamViewModel = new TeamViewModel(@Html.Raw(data));
+        ko.applyBindings(teamViewModel);
+    </script>
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Team</h4>
+    
+    @Html.Partial("_DisplayTeam")
+
+    <p><button class="btn btn-danger" data-bind="click: save">Delete</button></p>
+
+</div>
